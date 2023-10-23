@@ -98,5 +98,90 @@ public class ProductSystemTest {
         assertThat(responseEntity.getBody().getMethod()).isEqualTo("findByDateAndProductIdAndBrandId");
         assertThat(responseEntity.getBody().getLine()).isEqualTo(34);
     }
+
+    @Test
+    public void testCase1() {
+        ResponseEntity<Product> responseEntity = restTemplate.getForEntity(
+                ULR_LOCAL_HOST + port + "/product/date/2020-06-14-10.00.00/productId/35455/brandId/1", Product.class
+        );
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody().getBrandId()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getStartDate()).isEqualTo("2020-06-14T00:00:00");
+        assertThat(responseEntity.getBody().getEndDate()).isEqualTo("2020-12-31T23:59:59");
+        assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
+        assertThat(responseEntity.getBody().getPriority()).isEqualTo(0);
+        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("35.50");
+        assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
+    }
+
+    @Test
+    public void testCase2() throws Exception {
+        ResponseEntity<Product> responseEntity = restTemplate.getForEntity(
+                ULR_LOCAL_HOST + port + "/product/date/2020-06-14-16.00.00/productId/35455/brandId/1", Product.class
+        );
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody().getBrandId()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getStartDate()).isEqualTo("2020-06-14T15:00:00");
+        assertThat(responseEntity.getBody().getEndDate()).isEqualTo("2020-06-14T18:30:00");
+        assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(2);
+        assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
+        assertThat(responseEntity.getBody().getPriority()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("25.45");
+        assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
+    }
+
+    @Test
+    public void testCase3() throws Exception {
+        ResponseEntity<Product> responseEntity = restTemplate.getForEntity(
+                ULR_LOCAL_HOST + port + "/product/date/2020-06-14-21.00.00/productId/35455/brandId/1", Product.class
+        );
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody().getBrandId()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getStartDate()).isEqualTo("2020-06-14T00:00:00");
+        assertThat(responseEntity.getBody().getEndDate()).isEqualTo("2020-12-31T23:59:59");
+        assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
+        assertThat(responseEntity.getBody().getPriority()).isEqualTo(0);
+        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("35.50");
+        assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
+    }
+
+    @Test
+    public void testCase4() throws Exception {
+        ResponseEntity<Product> responseEntity = restTemplate.getForEntity(
+                ULR_LOCAL_HOST + port + "/product/date/2020-06-15-20.00.00/productId/35455/brandId/1", Product.class
+        );
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody().getBrandId()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getStartDate()).isEqualTo("2020-06-15T16:00:00");
+        assertThat(responseEntity.getBody().getEndDate()).isEqualTo("2020-12-31T23:59:59");
+        assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(4);
+        assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
+        assertThat(responseEntity.getBody().getPriority()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("38.95");
+        assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
+    }
+
+    @Test
+    public void testCase5() throws Exception {
+        ResponseEntity<Product> responseEntity = restTemplate.getForEntity(
+                ULR_LOCAL_HOST + port + "/product/date/2020-06-16-21.00.00/productId/35455/brandId/1", Product.class
+        );
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody().getBrandId()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getStartDate()).isEqualTo("2020-06-15T16:00:00");
+        assertThat(responseEntity.getBody().getEndDate()).isEqualTo("2020-12-31T23:59:59");
+        assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(4);
+        assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
+        assertThat(responseEntity.getBody().getPriority()).isEqualTo(1);
+        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("38.95");
+        assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
+    }
 }
 
