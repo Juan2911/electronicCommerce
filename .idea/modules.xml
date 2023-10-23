@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/electronic.commerce.adapters/electronic.commerce.adapters.iml" filepath="$PROJECT_DIR$/electronic.commerce.adapters/electronic.commerce.adapters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/electronic-commerce-application/electronic.commerce.application.iml" filepath="$PROJECT_DIR$/electronic-commerce-application/electronic.commerce.application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/electronic-commerce-domain/electronic.commerce.domain.iml" filepath="$PROJECT_DIR$/electronic-commerce-domain/electronic.commerce.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/electronic-commerce-adapters/electronic-commerce-persistence-h2/electronic.commerce.persistence.h2.iml" filepath="$PROJECT_DIR$/electronic-commerce-adapters/electronic-commerce-persistence-h2/electronic.commerce.persistence.h2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/electronic-commerce-adapters/electronic-commerce-rest-web/electronic.commerce.rest.web.iml" filepath="$PROJECT_DIR$/electronic-commerce-adapters/electronic-commerce-rest-web/electronic.commerce.rest.web.iml" />
+    </modules>
+  </component>
+</project>
