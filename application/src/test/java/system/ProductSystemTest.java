@@ -19,6 +19,7 @@ public class ProductSystemTest {
     private int port;
 
     private static final String ULR_LOCAL_HOST = "http://localhost:";
+
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -35,7 +36,7 @@ public class ProductSystemTest {
         assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(2);
         assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
         assertThat(responseEntity.getBody().getPriority()).isEqualTo(1);
-        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("25.45");
+        assertThat(responseEntity.getBody().getPrice()).isEqualByComparingTo("25.45");
         assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
     }
 
@@ -112,7 +113,7 @@ public class ProductSystemTest {
         assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(1);
         assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
         assertThat(responseEntity.getBody().getPriority()).isEqualTo(0);
-        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("35.50");
+        assertThat(responseEntity.getBody().getPrice()).isEqualByComparingTo("35.50");
         assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
     }
 
@@ -129,7 +130,7 @@ public class ProductSystemTest {
         assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(2);
         assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
         assertThat(responseEntity.getBody().getPriority()).isEqualTo(1);
-        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("25.45");
+        assertThat(responseEntity.getBody().getPrice()).isEqualByComparingTo("25.45");
         assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
     }
 
@@ -146,7 +147,7 @@ public class ProductSystemTest {
         assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(1);
         assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
         assertThat(responseEntity.getBody().getPriority()).isEqualTo(0);
-        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("35.50");
+        assertThat(responseEntity.getBody().getPrice()).isEqualByComparingTo("35.50");
         assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
     }
 
@@ -163,7 +164,7 @@ public class ProductSystemTest {
         assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(4);
         assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
         assertThat(responseEntity.getBody().getPriority()).isEqualTo(1);
-        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("38.95");
+        assertThat(responseEntity.getBody().getPrice()).isEqualByComparingTo("38.95");
         assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
     }
 
@@ -180,7 +181,7 @@ public class ProductSystemTest {
         assertThat(responseEntity.getBody().getPriceListId()).isEqualTo(4);
         assertThat(responseEntity.getBody().getProductId()).isEqualTo(35455);
         assertThat(responseEntity.getBody().getPriority()).isEqualTo(1);
-        assertThat(responseEntity.getBody().getPrice().toString()).isEqualTo("38.95");
+        assertThat(responseEntity.getBody().getPrice()).isEqualByComparingTo("38.95");
         assertThat(responseEntity.getBody().getCurrency()).isEqualTo("EUR");
     }
 }

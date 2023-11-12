@@ -5,7 +5,6 @@ import electronicCommerce.domain.models.Product;
 import electronicCommerce.domain.models.impl.GetProductRequest;
 import electronicCommerce.persistence.h2.entities.ProductEntity;
 import electronicCommerce.persistence.h2.repositories.ProductRepository;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -14,6 +13,7 @@ import utils.TestObjectBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
@@ -45,7 +45,7 @@ public class ProductPersistenceH2AdapterTest {
 
         Product productResponse = productPersistenceH2Adapter.findByDateAndProductIdAndBrandId(getProductRequest);
 
-        Assert.assertEquals(product, productResponse);
+        assertEquals(product, productResponse);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class ProductPersistenceH2AdapterTest {
 
         Product productResponse = productPersistenceH2Adapter.findByDateAndProductIdAndBrandId(getProductRequest);
 
-        Assert.assertEquals(product, productResponse);
+        assertEquals(product, productResponse);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class ProductPersistenceH2AdapterTest {
         NotFoundException notFoundException = assertThrows(NotFoundException.class,
                 () -> productPersistenceH2Adapter.findByDateAndProductIdAndBrandId(getProductRequest));
 
-        Assert.assertEquals("Product Not Found", notFoundException.getMessage());
+        assertEquals("Product Not Found", notFoundException.getMessage());
     }
 
 

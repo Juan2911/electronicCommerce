@@ -8,13 +8,14 @@ import electronicCommerce.domain.ports.ProductPersistence;
 import electronicCommerce.domain.services.impl.ProductServiceImpl;
 import electronicCommerce.domain.utils.TestObjectBuilder;
 import electronicCommerce.domain.validations.ValidationService;
-import org.junit.Assert;
+import electronicCommerce.domain.validations.impl.ProductServiceValidationServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.MockitoAnnotations.openMocks;
 
@@ -22,8 +23,7 @@ public class ProductServiceImplTest {
 
     private ProductServiceImpl productServiceImpl;
 
-    @Mock
-    private ValidationService productServiceValidationServiceImpl;
+    private ValidationService productServiceValidationServiceImpl = new ProductServiceValidationServiceImpl();
 
     @Mock
     private ProductPersistence productPersistenceH2Adapter;
@@ -43,7 +43,7 @@ public class ProductServiceImplTest {
         Mockito.when(productPersistenceH2Adapter.findByDateAndProductIdAndBrandId(getProductRequest)).thenReturn(product);
         Product productResult = productServiceImpl.readProductBy("2020-06-14-17.00.00",1,1);
 
-        Assert.assertEquals(product, productResult);
+        assertEquals(product, productResult);
     }
 
     @Test
@@ -52,7 +52,7 @@ public class ProductServiceImplTest {
         ValidationException validationException = assertThrows(ValidationException.class,
                 () -> productServiceImpl.readProductBy("2020-06-14-17",1,1));
 
-        Assert.assertEquals(Constants.DATE_FORMAT_VALIDATION_MESSAGE, validationException.getMessage());
+        assertEquals(Constants.DATE_FORMAT_VALIDATION_MESSAGE, validationException.getMessage());
     }
 
     @Test
@@ -65,7 +65,7 @@ public class ProductServiceImplTest {
         ValidationException validationExceptionResponse = assertThrows(ValidationException.class,
                 () -> productServiceImpl.readProductBy("2020-06-14-17.00.00",1,1));
 
-        Assert.assertEquals(Constants.PRODUCT_ID_CORRECT_VALUE_VALIDATION_MESSAGE, validationExceptionResponse.getMessage());
+        assertEquals(Constants.PRODUCT_ID_CORRECT_VALUE_VALIDATION_MESSAGE, validationExceptionResponse.getMessage());
     }
 
     @Test
@@ -78,6 +78,6 @@ public class ProductServiceImplTest {
         ValidationException validationExceptionResponse = assertThrows(ValidationException.class,
                 () -> productServiceImpl.readProductBy("2020-06-14-17.00.00",1,1));
 
-        Assert.assertEquals(Constants.BRAND_ID_CORRECT_VALUE_VALIDATION_MESSAGE, validationExceptionResponse.getMessage());
+        assertEquals(Constants.BRAND_ID_CORRECT_VALUE_VALIDATION_MESSAGE, validationExceptionResponse.getMessage());
     }
 }
