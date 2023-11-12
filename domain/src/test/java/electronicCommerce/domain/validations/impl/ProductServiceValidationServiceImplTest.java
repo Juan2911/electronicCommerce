@@ -4,10 +4,10 @@ import electronicCommerce.domain.constants.Constants;
 import electronicCommerce.domain.exceptions.ValidationException;
 import electronicCommerce.domain.models.impl.GetProductRequest;
 import electronicCommerce.domain.utils.TestObjectBuilder;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ProductServiceValidationServiceImplTest {
@@ -27,7 +27,7 @@ public class ProductServiceValidationServiceImplTest {
         ValidationException validationExceptionResponse = assertThrows(ValidationException.class,
                 () -> productServiceValidationService.validate(getProductRequest));
 
-        Assert.assertEquals(Constants.PRODUCT_ID_CORRECT_VALUE_VALIDATION_MESSAGE, validationExceptionResponse.getMessage());
+        assertEquals(Constants.PRODUCT_ID_CORRECT_VALUE_VALIDATION_MESSAGE, validationExceptionResponse.getMessage());
     }
 
     @Test
@@ -38,6 +38,6 @@ public class ProductServiceValidationServiceImplTest {
         ValidationException validationExceptionResponse = assertThrows(ValidationException.class,
                 () -> productServiceValidationService.validate(getProductRequest));
 
-        Assert.assertEquals(Constants.BRAND_ID_CORRECT_VALUE_VALIDATION_MESSAGE, validationExceptionResponse.getMessage());
+        assertEquals(Constants.BRAND_ID_CORRECT_VALUE_VALIDATION_MESSAGE, validationExceptionResponse.getMessage());
     }
 }
