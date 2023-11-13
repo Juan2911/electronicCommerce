@@ -1,5 +1,6 @@
 package electronicCommerce.persistence.h2.adapters;
 
+import config.Config;
 import electronicCommerce.domain.exceptions.NotFoundException;
 import electronicCommerce.domain.models.Product;
 import electronicCommerce.domain.models.impl.GetProductRequest;
@@ -8,6 +9,9 @@ import electronicCommerce.persistence.h2.repositories.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ContextConfiguration;
 import utils.TestObjectBuilder;
 
 import java.util.ArrayList;
@@ -18,7 +22,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
-public class ProductPersistenceH2AdapterTest {
+@DataJpaTest
+@ContextConfiguration(classes = { Config.class })
+@AutoConfigurationPackage
+public class ProductPersistenceH2AdapterTest  {
 
     private ProductPersistenceH2Adapter productPersistenceH2Adapter;
 

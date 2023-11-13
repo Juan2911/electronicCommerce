@@ -2,16 +2,21 @@ package electronicCommerce.rest.controllers;
 
 import electronicCommerce.domain.models.Product;
 import electronicCommerce.domain.services.impl.ProductServiceImpl;
+import electronicCommerce.rest.config.Config;
 import electronicCommerce.rest.utils.TestObjectBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
+@WebMvcTest(ProductController.class)
+@ContextConfiguration(classes = { Config.class })
 public class ProductControllerTest {
 
     private ProductController productController;

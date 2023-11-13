@@ -1,5 +1,6 @@
 package electronicCommerce.domain.service.impl;
 
+import electronicCommerce.domain.config.Config;
 import electronicCommerce.domain.constants.Constants;
 import electronicCommerce.domain.exceptions.ValidationException;
 import electronicCommerce.domain.models.Product;
@@ -13,12 +14,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.test.context.ContextConfiguration;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.MockitoAnnotations.openMocks;
 
+@ContextConfiguration(classes = Config.class)
 public class ProductServiceImplTest {
 
     private ProductServiceImpl productServiceImpl;

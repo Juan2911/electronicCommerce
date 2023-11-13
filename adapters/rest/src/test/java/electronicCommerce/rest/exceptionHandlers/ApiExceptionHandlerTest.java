@@ -2,12 +2,18 @@ package electronicCommerce.rest.exceptionHandlers;
 
 import electronicCommerce.domain.exceptions.NotFoundException;
 import electronicCommerce.domain.exceptions.ValidationException;
+import electronicCommerce.rest.config.Config;
+import electronicCommerce.rest.controllers.ProductController;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@WebMvcTest(ProductController.class)
+@ContextConfiguration(classes = { Config.class })
 public class ApiExceptionHandlerTest {
 
     @Test
