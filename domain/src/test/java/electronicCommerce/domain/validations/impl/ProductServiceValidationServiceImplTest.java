@@ -1,15 +1,18 @@
 package electronicCommerce.domain.validations.impl;
 
+import electronicCommerce.domain.config.Config;
 import electronicCommerce.domain.constants.Constants;
 import electronicCommerce.domain.exceptions.ValidationException;
 import electronicCommerce.domain.models.impl.GetProductRequest;
 import electronicCommerce.domain.utils.TestObjectBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@ContextConfiguration(classes = Config.class)
 public class ProductServiceValidationServiceImplTest {
 
     private ProductServiceValidationServiceImpl productServiceValidationService;
